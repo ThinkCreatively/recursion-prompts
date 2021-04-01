@@ -27,12 +27,8 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
-  //create result variable
   var sumOfArray = 0;
-  //edge case
-  if (array.length === 0) {
-    return 0;
-  }
+
   //base case for when array has one integar
   if (Array.isArray(array) && array.length === 1) {
     array.forEach(function (item) {
@@ -46,11 +42,8 @@ var sum = function(array) {
     return sumOfArray;
   }
 
-  //recursive case for when array has more than one integar
   if (array.length > 1) {
-    //iterate over the array
     array.forEach(function(item) {
-      //add current item to sum by calling sum function
        sumOfArray += sum(item);
     });
   }
@@ -60,6 +53,32 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  //create a result variable
+  var sumOfAllIntegars = 0;
+
+  //base case if array has one integar
+  if (array.length === 0) {
+    array.forEach(function(item) {
+      sumOfAllIntegars += item;
+    });
+    return sumOfAllIntegars;
+  }
+
+  //if passed in a item
+  if (!Array.isArray(array)) {
+    //return item
+    return array;
+  }
+  //recursive case for when input has more than one integar
+  if (array.length >= 1) {
+    //iterate over the array
+    array.forEach(function(item) {
+      //add each item to the result
+      sumOfAllIntegars += arraySum(item);
+    });
+  }
+  //return result
+  return sumOfAllIntegars;
 };
 
 // 4. Check if a number is even.
