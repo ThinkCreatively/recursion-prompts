@@ -101,6 +101,27 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  var isNegative = false;
+  var result = 0;
+
+  if (n < 0) {
+    n = Math.abs(n);
+    isNegative = true;
+  }
+
+  if (n === 0) {
+    return 0;
+  }
+
+  if (n > 0) {
+    result = n - 1 + sumBelow(n - 1);
+  }
+
+  if(isNegative) {
+    return -result;
+  } else {
+    return result;
+  }
 };
 
 // 6. Get the integers within a range (x, y).
