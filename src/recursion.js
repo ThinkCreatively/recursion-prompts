@@ -127,26 +127,63 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-  // //create a result array
-  // var resultArr = [];
-  // //edge case
-  // if((y - x) <= 1) {
-  //   return [];
-  // }
-  // //base case (when theres one number in between)
-  // //if start minus end is equal to 2
-  // if ((y - x) >= 2) {
-  //   resultArr.push(x + 1);
-  //   return resultArr;
-  // }
-  // //recursive case (when there is numbers in between)
-  // // if x is smaller than y set x to be plus one
-  // if (x < y) {
-  //   resultArr.concat(range(x++, y));
-  // }
-  // //return result
-  // return resultArr;
+  //create a result array
+  var resultArr = [];
+  //edge case
+  if(Math.abs(x - y) <= 1) {
+    return [];
+  }
+  //base case (when theres one number in between)
+  //if start minus end is equal to 2
+  if(x < y ) {
+    if(Math.abs(x - y) === 2 || Math.abs(x - y) > 2) {
+      resultArr.push(x + 1);
+      if(Math.abs(x - y) === 2)
+      return resultArr;
+    }
+  }
+  if(x > y ) {
+    if(Math.abs(x - y) === 2 || Math.abs(x - y) > 2) {
+      resultArr.push(x - 1);
+      if(Math.abs(x - y) === 2)
+      return resultArr;
+    }
+  }
+  //recursive case (when there is numbers in between)
+  // if x is smaller than y set x to be plus one
+  if (x < y) {
+    resultArr = resultArr.concat(range(x + 1, y));
+    return resultArr;
+  }
+  //if x is larger than y set x to be minus one
+  if (x > y) {
+    resultArr = resultArr.concat(range(x - 1, y));
+    return resultArr;
+  }
+  //return result
+  return resultArr;
 };
+// var range = function(x, y) {
+//   //create a result array
+//   var resultArr = [];
+//   //edge case when there isn't any numbers between start and end
+//   if((y - x) <= 1) {
+//     return [];
+//   }
+//   //base case (when theres one number in between)
+//   //if end minus start equals 2
+//   if (y - x === 2) {
+//     //we then need to iterate from start to end
+//     for (var i = x + 1; i < y; i++) {
+//       //add the numbers in between
+//       resultArr.push(i);
+//     }
+//   }
+
+//   //recursive case (when there is more than one number between start and end)
+
+//   return resultArr;
+// };
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -188,6 +225,7 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+
 };
 
 // 9. Write a function that reverses a string.
