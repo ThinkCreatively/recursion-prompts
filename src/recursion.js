@@ -127,6 +127,16 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  //create a result arr
+  var resultArr = [];
+  //base case (no numbers in-between)
+  if (y - x <= 1) {
+    return [];
+    return resultArr;
+  }
+  //recursive case (numbers in-between)
+  resultArr
+  return resultArr;
 };
 
 // 7. Compute the exponent of a number.
