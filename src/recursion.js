@@ -190,13 +190,10 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-  //set n to be n divided by 2
-  n = n % 2;
-
-  if(n > 2) {
-    return powerOfTwo(n);
-  } else if (n === 2 || n === 1) {
+  if (n === 2 || n === 1) {
     return true;
+  } else if (n > 2) {
+    return powerOfTwo(n / 2);
   } else {
     return false;
   }
