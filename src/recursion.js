@@ -201,10 +201,26 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  if (string === "") {
+    return "";
+  } else {
+    return reverse(string.substr(1)) + string.charAt(0);
+  }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  string = string.toLowerCase();
+  //base case for when a string is just one letter
+  if (string.length === 1 || string === '') {
+    return true;
+  }
+  //base case when a strings first and last letters are not the same
+  if (string[0] !== string.charAt(string.length - 1)) {
+    return false;
+  }
+  //recursive case
+   return palindrome(string.substr(1, -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
